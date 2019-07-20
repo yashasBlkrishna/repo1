@@ -3,8 +3,8 @@ set +x
  file="$Home/var/lib/jenkins/workspace/XYZ.exe" 
 
 
-				if[[ -f "$file" ]] && sudo rm -f "$file"
-					pwd; sudo chmod 777 build; ./build 1> /dev/null
+				if[[ -f "$file" ]] && rm -f "$file"
+					pwd; chmod 777 build; ./build 1> /dev/null
 					
 				echo -e "\n\n**************************** This is a Deploy JOB for $file**************************** "
 				if [[ -f "$file" ]]; then 
