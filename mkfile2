@@ -1,0 +1,7 @@
+XYZ.exe:main.o fact.o
+	gcc -o main.o fact.o
+fact.o:fact.c
+	gcc -c fact.c
+clean:
+	rm -rf *.o
+
