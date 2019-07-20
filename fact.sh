@@ -1,10 +1,15 @@
 #!/bin/bash
 set +x
- file="$Home/var/lib/jenkins/workspace/XYZ.exe" 
+ file="$Home/var/lib/jenkins/workspace/job_parameterized/XYZ.exe" 
 
 
-				if[[ -f "$file" ]] && rm -f "$file"
-					pwd; chmod 777 build; ./build 1> /dev/null
+				if[[ -f "$file" ]]
+				 then
+				 echo "***********building XYZ.exe**********************************************"
+				 cd /var/lib/jenkins/workspace/job_parameterized
+				 make -f mkfile2
+				 make -f mkfile2 clean
+	 			 fi
 					
 				echo -e "\n\n**************************** This is a Deploy JOB for $file**************************** "
 				if [[ -f "$file" ]]; then 
