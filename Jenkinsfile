@@ -38,20 +38,19 @@ stages {
 										
 				echo -e "\n\n**************************** This is a Deploy JOB $file **************************** "
 				if [[ -f "$file" ]]; then 
-				echo -e "\nSTEP 1: Deploying $file with default input........"
-				$file -v -i <<<"5 4 5 6 012"
+				  echo -e "\nSTEP 1: Deploying $file with default input........"
+				  $file -v -i <<<"5 4 5 6 012"
 
-				if [ $? -eq 0 ]; then
-				  if [[ -x "$file" ]]; then  
-					  echo -e "\nSTEP 2:	Deployment Successful - Build pushed to artifactory"
+				      if [ $? -eq 0 ]; then
+				 	  echo -e "\nSTEP 2:	Deployment Successful - Build pushed to artifactory"
+					   cp XYZ.exe /home/ec2-user/builds/
 					  echo "       	ARTIFACTORY_PATH: /home/ec2-user/builds/ "
-				  fi
-				else  
+				      else  
 					  echo -e "**************** ERROR *********************\n"
 					  echo "Deployment failure - XYZ.exe cannot be executed "
 					  echo -e "********************************************\n"
 					  exit 1
-				fi
+				
 				else 
 					 echo -e "**************** ERROR *********************\n"
 					  echo "Build - XYZ.exe notfound $file "
