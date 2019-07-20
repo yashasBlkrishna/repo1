@@ -7,15 +7,13 @@ stages {
 				sh '''
 						set +x
 						echo -e "\n\n**************************** This is a Build JOB **************************** "
-            cd /var/lib/jenkins/workspace/sample_pipeline1
-						if [[ -x "XYZ.exe" ]]; then
-							echo "STEP 1:	Cleaning existing builds ........"
-								make -f mkfile2 clean
-						fi   
-							echo -e "\n\nSTEP 2:	Initiating Build for below files (using make)........"
+           					 cd /var/lib/jenkins/workspace/sample_pipeline1
+						  
+						  echo -e "\n\nSTEP 1:	Initiating Build (using make)........"
 								make -f mkfile2
+								make -f mkfile2 clean
 
-						if [[ -x "./ABC.exe" ]]; then  
+						if [[ -x "XYZ.exe" ]]; then  
 							echo -e "\nSTEP 4:	Build Successful"
 							echo "       	BUILD_FILE: XYZ.exe"	
 						else
@@ -35,7 +33,7 @@ stages {
                 echo 'Deploying to TEST environment..'
 				sh '''
 					set +x
-          pwd=/var/lib/jenkins/workspace/sample_piepeline1
+          				pwd=/var/lib/jenkins/workspace/sample_piepeline1
 					file="$(pwd)/XYZ.exe"
 										
 				echo -e "\n\n**************************** This is a Deploy JOB $file **************************** "
