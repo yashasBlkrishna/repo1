@@ -46,7 +46,7 @@ stages {
                                    
 				   if [ $? -eq 0 ]; then
 				   echo -e "\nSTEP 2:Deployment Successful - Build pushed to artifactory"
-				    scp -i yashaswini.pem $file ec2-user@172.31.47.10:/home/ec2-user/builds/
+				    scp -i yashaswini.pem $file ec2-user@172.31.47.10:/home/ec2-user/
 				    echo " ARTIFACTORY_PATH: /home/ec2-user/builds/ "
 				   fi			     
 				    
