@@ -37,14 +37,18 @@ stages {
 					
 										
 				echo -e "\n\n**************************** This is a Deploy JOB $file **************************** "
+				
 				if [[ -f "$file" ]]; then 
 				  echo -e "\nSTEP 1: Deploying $file with default input........"
-				  $file -v -i <<<"5 4 5 6 012"
-                                  
-				  echo -e "\nSTEP 2:Deployment Successful - Build pushed to artifactory"
+				   $file -v -i <<<"5 4 5 6 012"
+				   echo $?
+                                   if [ $? -ne 0 ]; then
+				   
+				   echo -e "\nSTEP 2:Deployment Successful - Build pushed to artifactory"
 				   cp $file /home/ec2-user/builds/
 				   echo " ARTIFACTORY_PATH: /home/ec2-user/builds/ "
-				  			     
+				   fi			     
+				    
 				    else  
 					  echo -e "**************** ERROR *********************\n"
 					  echo "Deployment failure - XYZ.exe cannot be executed "
@@ -64,7 +68,7 @@ stages {
 					pwd=/var/lib/jenkins/workspace/sample_piepeline1
 					file="$(pwd)/XYZ.exe"
 									
-				echo -e "\n\n**************************** This is a Deploy JOB for $file**************************** "
+				echo -e "\n\n**************************** This is a TEST JOB for $file**************************** "
 				if [[ -f "$file" ]]; then 
 				count=1
 				
