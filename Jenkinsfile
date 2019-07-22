@@ -33,7 +33,8 @@ stages {
                 echo 'Deploying to TEST environment..'
 				sh '''
 					set +x
-          				file="/var/lib/jenkins/workspace/sample_piepeline1/XYZ.exe"
+          				pwd=/var/lib/jenkins/workspace/sample_piepeline1
+					file="$(pwd)/XYZ.exe"
 					
 										
 				echo -e "\n\n**************************** This is a Deploy JOB $file **************************** "
@@ -42,8 +43,8 @@ stages {
 				  echo -e "\nSTEP 1: Deploying $file with default input........"
 				   $file -v -i <<<"5 4 5 6 012"
 				   echo $?
-                                   if [ $? -ne 0 ]; then
-				   
+                                   
+				   if [ $? -ne 0 ]; then
 				   echo -e "\nSTEP 2:Deployment Successful - Build pushed to artifactory"
 				   cp $file /home/ec2-user/builds/
 				   echo " ARTIFACTORY_PATH: /home/ec2-user/builds/ "
