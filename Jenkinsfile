@@ -46,8 +46,7 @@ stages {
                                    
 				   if [ $? -eq 0 ]; then
 				   echo -e "\nSTEP 2:Deployment Successful - Build pushed to artifactory"
-				    sudo cp $file /home/ec2-user/builds/
-				   echo " ARTIFACTORY_PATH: /home/ec2-user/builds/ "
+				    echo " ARTIFACTORY_PATH: /home/ec2-user/builds/ "
 				   fi			     
 				    
 				    else  
