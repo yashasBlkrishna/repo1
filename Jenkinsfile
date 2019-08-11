@@ -6,7 +6,7 @@ stages {
                 echo 'Building ..'
 				sh '''
 						set +x
-						echo -e "\n\n**************************** This is a Build JOB **************************** "
+						echo -e "\n\n**************************** This is a Build JOB ********************* "
            					 cd /var/lib/jenkins/workspace/sample_pipeline1
 						  
 						  echo -e "\n\nSTEP 1:	Initiating Build (using make)........"
@@ -23,7 +23,7 @@ stages {
 							exit 1
 						fi    
 
-						echo -e "\n************************************************************************** "
+						echo -e "\n******************************** "
 				'''
 				
             }
